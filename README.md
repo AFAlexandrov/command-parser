@@ -1,9 +1,9 @@
 # command-parser
 Extensible parser of user-defined commands
 
-* You commands will be stored independant of the parser code.
-* You can (append/change/delete) some command or (and) command group whithout touching the code which execute it.
-* You can get a parameters for postprocessing inside the command execution code or somwhere else.
+* Commands are stored regardless of the parser code.
+* Adding / changing / deleting commands or groups of commands without touching the code that executes it.
+* Obtaining parameters for post-processing inside the command execution code or somewhere else.
 
 ## Commands example
 		print voltage
@@ -64,7 +64,7 @@ Or execute action directly :)
 
 		parser_action()();
 
-##LICENSE
+## LICENSE
 * This code is licensed under the GNU Lesser General Public License (LGPL) version 3 as published by the Free Software Foundation.
 * It is possible to link closed-source code with the LGPL code.
 * All code files contain licensing information.
