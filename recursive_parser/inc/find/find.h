@@ -10,8 +10,12 @@
 #define _FIND_H_
 
 #include <stdint.h>
+#include <string.h>
 
 #include "../inc/parser/parser_internal.h"
+#include "../inc/parser/d_base.h"
+
+dbase_record_t * find_cmd (const char * message);
 
 #endif//_FIND_H_
 

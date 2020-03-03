@@ -8,33 +8,7 @@
 #ifndef _PARSER_H_
 #define _PARSER_H_
 
-#define SUBCOMMAND(cell_list_ptr) ( \
-	(dbase_record_t *)(cell_list_ptr) \
-)
-
-#define START_CMD_GROUP(name, items_quantity) \
-static dbase_record_t \
-name [items_quantity + 1] =
-
-#define END_CMD_GROUP(items_quantity) \
-	,[items_quantity] = {NULL}
-
-#define END_CMD_GROUP_WITH_RESPONSE(items_quantity, resp) \
-	,[items_quantity] = {.response = resp}
-
-
-typedef struct parser_record {
-	char
-		* command,
-		* response,
-		* parameter;
-	void (* action) (void);
-	struct parser_record * subcommand;
-} dbase_record_t;
-
-typedef dbase_record_t dbase_table_t [];
-typedef dbase_record_t (* command_dbase_t) [];
-typedef void (* action_t) (void);
+#include "d_base.h"
 
 void parser_create (command_dbase_t cmd_dbase, int pattern_max_len);
 void parser_delete (void);
