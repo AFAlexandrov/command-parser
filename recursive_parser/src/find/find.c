@@ -7,3 +7,14 @@
  */
 
 #include "find_internal.h"
+
+dbase_record_t * find_cmd (const char * message) {
+	static char msg [PARSER_PATTERN_MAX_LEN_DEFAULT] = {0};
+
+	uint16_t len = strlen(message);
+	strncpy(msg, message, len);
+	if (len < PARSER_PATTERN_MAX_LEN_DEFAULT) {
+		msg[len] = '\0';
+	}
+	return dbase_table_find(parser_command_dbase(), msg);
+}

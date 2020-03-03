@@ -24,6 +24,6 @@ dbase_record_t * dbase_table_find (
 	char * message
 );
 
-dbase_record_t * find_cmd (const char * message);
+
 
 #endif//_FIND_INTERNAL_H_
