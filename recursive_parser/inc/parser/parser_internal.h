@@ -11,9 +11,10 @@
 
 #include "stddef.h"
 #include "parser.h"
+#include "../inc/find/find_internal.h"
+
 
 #define NEWLINE "\r"
-
 #define PARSER_STUB_RESPONSE "invalid syntax!"NEWLINE
 #define PARSER_PATTERN_MAX_LEN_DEFAULT 100
 
@@ -27,31 +28,18 @@ dbase_record_t * parser_command_dbase (void);
 int parser_pattern_max_len (void);
 char * parser_response (void);
 action_t parser_action (void);
+
 static inline const char * parser_stub_response (void) {
 	return PARSER_STUB_RESPONSE;
 }
+
 action_t parser_stub_action (void);
 dbase_record_t * parser_empty_cmd_dbase (void);
 
 static inline dbase_record_t * parser_not_found (void) {
 	return parser_empty_cmd_dbase();
 }
+
 dbase_record_t * _parser (const char * message);
-
-//---find---// TODO: extract to independend code
-#include <stdint.h>
-char * extract_pattern (
-	char * message,
-	uint16_t from_here,
-	uint16_t cmd_len
-);
-
-char * free_spaces (char * source);
-
-dbase_record_t * dbase_table_find (
-	dbase_table_t table,
-	char * message
-);
-dbase_record_t * find_cmd (const char * message);
 
 #endif// _PARSER_INTERNAL_H_

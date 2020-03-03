@@ -7,9 +7,15 @@
  */
 
 #include "unity_fixture.h"
-
 #include "parser_command_data_base.h"
-#include "parser_internal.h"
+
+
+//need to connect this file with "parser_internal.h"
+
+#include "find_internal.h"
+
+#include "../inc/parser/parser_internal.h"
+// #include "../src/parser/parser_internal.c"
 
 #define _TEST_MESSAGE_ "find me please"
 

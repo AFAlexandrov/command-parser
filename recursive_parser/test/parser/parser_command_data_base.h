@@ -50,6 +50,7 @@ START_CMD_GROUP (get, SUBCMD_GET_NUM) {
 		.command = SUBCMD_ANOTHER_PARAM,
 		.response = RESP_ANOTHER_PARAM
 	},
+
 	[1] = {
 		.command = SUBCMD_SOME_PARAMETER,
 		.response = RESP_SOME_PARAMETER,
@@ -63,6 +64,7 @@ START_CMD_GROUP (get, SUBCMD_GET_NUM) {
 #define test_cmd_GET  1
 #define test_cmd_SET  2
 #define cmd_NOT_FOUND (TEST_CMD_NUM - 1)
+
 START_CMD_GROUP (test_commands, TEST_CMD_NUM) {
 	[test_cmd_HELP] = {
 		.command = CMD_HELP,

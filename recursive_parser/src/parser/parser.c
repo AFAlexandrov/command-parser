@@ -6,8 +6,7 @@
  * directory for more details.
  */
 
-// #include "parser_internal.h"
-#include "../inc/parser/parser_internal.h"
+#include "parser_internal.h"
 
 /*
 1. cells of command, option and required parammesers are the same.
