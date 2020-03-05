@@ -19,13 +19,20 @@ bool is_delimeter (char symbol) {
 	return (symbol == ' ' || symbol == '\t' || symbol == '\0');
 }
 
+
 static inline bool extraction_possible (char * message, uint16_t from_here, uint16_t cmd_len) {
 	register int msg_len = strlen(message);
-	return from_here < msg_len &&
-		cmd_len <= msg_len &&
-		cmd_len < EXTRACT_MSG_MAX_SIZE &&
-		is_delimeter(message[from_here + cmd_len])
-	;
+
+	bool
+		pos_in_message = from_here < msg_len,
+		cmd_in_message = cmd_len <= msg_len,
+		sym_not_delimeter = is_delimeter(message[from_here + cmd_len]);
+
+	return
+		pos_in_message &&
+		cmd_in_message &&
+		sym_not_delimeter &&
+		cmd_len < EXTRACT_MSG_MAX_SIZE;
 }
 
 char * extract_pattern (char * message, uint16_t from_here, uint16_t cmd_len) {
@@ -41,10 +48,9 @@ char * extract_pattern (char * message, uint16_t from_here, uint16_t cmd_len) {
 }
 
 char * free_spaces (char * source) {
-    char * result = source;
-    while (*result == ' ' || *result == '\t')
-    	result++;
-    return result;
+	char * delimeters = {" \t"};
+	int del_quantity = strspn(source, delimeters);
+    return (source + del_quantity);
 }
 
 
@@ -97,5 +103,3 @@ dbase_record_t * dbase_table_find (dbase_table_t table, char * message) {
 	}
 	return &table[record];
 }
-
-

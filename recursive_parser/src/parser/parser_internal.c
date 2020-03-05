@@ -17,7 +17,7 @@ action_t parser_stub_action (void) {
 
 static dbase_record_t _empty_cmd_dbase = {
 	.command = "emty_command_dbase",
-	.response = PARSER_STUB_RESPONSE,
+	.response = PARSER_RESPONSE_STUB,
 	.action = stub_action,
 	.subcommand = NULL
 };
@@ -30,7 +30,7 @@ static dbase_record_t * _command_dbase = NULL;
 static int _pattern_max_len = 0;
 static void (* _action) (void) = stub_action;
 static char
-	* _response = PARSER_STUB_RESPONSE,
+	* _response = PARSER_RESPONSE_STUB,
 	* _parameter = NULL;
 
 void parser_set_pattern_max_len (int pattern_max_len) {
@@ -67,8 +67,6 @@ action_t parser_action (void) {
 char * parser_parameter (void) {
 	return _parameter;
 }
-
-
 
 
 dbase_record_t * _parser (const char * message) {

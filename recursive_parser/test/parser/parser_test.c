@@ -65,7 +65,7 @@ TEST (parser, _parser_return_stub_response_if_cmd_dbase_empty) {
 	parser_delete();
 	dbase_record_t * result = _parser(_TEST_MESSAGE_);
 
-	TEST_ASSERT_EQUAL_STRING(parser_stub_response(), result->response);
+	TEST_ASSERT_EQUAL_STRING(parser_response_stub(), result->response);
 }
 
 TEST (parser, _parser_return_stub_action_if_cmd_dbase_empty) {
@@ -115,7 +115,7 @@ TEST (parser, parse_install_stub_RESPONSE_if_cmd_found_with_empty_response) {
 	PARSER_CREATE(cmd_dbase_STARTED_FROM(test_cmd_SET));
 	parse(CMD_SET);
 
-	TEST_ASSERT_EQUAL_STRING(parser_stub_response(), parser_response());
+	TEST_ASSERT_EQUAL_STRING(parser_response_stub(), parser_response());
 }
 
 TEST (parser, parse_install_stub_RESPONSE_if_cmd_NOT_found) {
@@ -123,7 +123,7 @@ TEST (parser, parse_install_stub_RESPONSE_if_cmd_NOT_found) {
 	PARSER_CREATE(cmd_dbase_STARTED_FROM(cmd_NOT_FOUND));
 	parse(_TEST_MESSAGE_);
 
-	TEST_ASSERT_EQUAL_STRING(parser_stub_response(), parser_response());
+	TEST_ASSERT_EQUAL_STRING(parser_response_stub(), parser_response());
 }
 
 TEST (parser, parse_install_stub_ACTION_if_cmd_NOT_found) {

@@ -15,7 +15,7 @@
 
 
 #define NEWLINE "\r"
-#define PARSER_STUB_RESPONSE "invalid syntax!"NEWLINE
+#define PARSER_RESPONSE_STUB "invalid syntax!"NEWLINE
 #define PARSER_PATTERN_MAX_LEN_DEFAULT 100
 
 void parser_set_command_dbase (dbase_record_t ** cmd_dbase);
@@ -29,8 +29,8 @@ int parser_pattern_max_len (void);
 char * parser_response (void);
 action_t parser_action (void);
 
-static inline const char * parser_stub_response (void) {
-	return PARSER_STUB_RESPONSE;
+static inline const char * parser_response_stub (void) {
+	return PARSER_RESPONSE_STUB;
 }
 
 action_t parser_stub_action (void);

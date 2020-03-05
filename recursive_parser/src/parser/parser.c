@@ -35,7 +35,7 @@ void parse (const char * user_message) {
 	dbase_record_t * command = _parser(user_message);
 	parser_set_response(command->response ?
 		command->response :
-		PARSER_STUB_RESPONSE
+		PARSER_RESPONSE_STUB
 	);
 	parser_set_action(command->action ?
 		command->action :
